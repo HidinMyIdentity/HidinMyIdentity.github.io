@@ -1,11 +1,20 @@
+/* Robert Roberts */
+
 body {
-    background: #002240;
+    background: url("pixil-frame-0.png"), #002240;
     color: white;
     font-family: Arial, sans-serif;
 }
 
-.content {
-    position: absolute;
+a:link {
+    color: chocolate;
+}
+
+a:visited {
+    color: cyan;
+}
+
+.box {
     width: 30vh;
     height: 45vh;
     background: #3c3f41;
@@ -13,6 +22,16 @@ body {
     top: 15vh;
     border: 1px solid #323232;
     text-align: center;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1em;
+    padding: 0.5em
+}
+
+.content {
+    left: calc(50% - 12.5vh);
 }
 
 .aligned {
@@ -21,31 +40,11 @@ body {
     padding-left: 1em;
 }
 
-.blurredleft, .blurredright {
-    position: absolute;
-    width: 30vh;
-    height: 45vh;
-    background: #3c3f41;
-    left: calc(12% - 12.5vh);
-    top: 15vh;
-    border: 1px solid #323232;
-    text-align: center;
-    transform: scale(0.7);
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -o-filter: blur(2px);
-    -ms-filter: blur(2px);
-    filter: blur(2px);
-}
-
 .blurredright {
     left: calc(88% - 12.5vh);
-
 }
 
-.blurredright:hover, .blurredleft:hover {
-    -moz-filter: blur(0px);
-    -o-filter: blur(0px);
-    -ms-filter: blur(0px);
-    filter: blur(0px);
+.blurredleft {
+    left: calc(12% - 12.5vh);
 }
+

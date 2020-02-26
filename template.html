@@ -3,36 +3,57 @@
 <!-- Robert Roberts -->
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex"> <!-- I don't like 'em! -->
     <title>The Javascripting of Robert</title>
     <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.4.1.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="content">
-        <h2>Name</h2>
+    <div class="content box" data-deg="0">
+        <h2>Robert Roberts</h2>
 
         <ul class="aligned">
-            <li>I prefer making a site rather than a wireframe</li>
-            <li>[general contact info]</li>
-            <li>more</li>
-            <li>email</li>
+            <li>I make things in Python</li>
+            <li></li>
+            <li><a href="https://portfolio.4bit.pw"></a></li>
+            <li><a href="mailto:contact@4bit.pw">contact@4bit.pw</a></li>
         </ul>
 
         <div class="cycle">
-            <button>&lt;-</button>
-            <button>-&gt;</button>
+            <button class="back">&lt;-</button>
+            <button class="next">-&gt;</button>
         </div>
 
     </div>
 
-    <div class="blurredleft">
-        If you can read this, the idea of the website is to be pretty much on an invisible cylinder.
-        You can use the buttons to cycle between what is in front of you, and it will hold different info
+    <div class="blurredleft box" data-deg="90">
+        <h4>Rock, Paper, Scissors (without JS!)</h4>
+        <p>Abusing CSS animations, Rock, Paper, Scissors can be done in-browser without Javascript!</p>
+        <a href="https://rand.4bit.pw/rps/">Check it out!</a>
+        <div class="cycle">
+            <button class="back">&lt;-</button>
+            <button class="next">-&gt;</button>
+        </div>
     </div>
 
-    <div class="blurredright">
+    <div class="box" data-deg="180">
+        Placeholder
+        <div class="cycle">
+            <button class="back">&lt;-</button>
+            <button class="next">-&gt;</button>
+        </div>
+    </div>
+
+    <div class="blurredright box" data-deg="270">
         The JS being used for fancy animations and the such.<br>
         I'm not so sure about what to do for the applications, but I'll find something.
         I'm certain that a somewhat-consistent theme can be done
+        <div class="cycle">
+            <button class="back">&lt;-</button>
+            <button class="next">-&gt;</button>
+        </div>
     </div>
+
 </body>
 </html>
