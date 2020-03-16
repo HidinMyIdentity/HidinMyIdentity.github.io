@@ -1,0 +1,30 @@
+/* Robert Roberts */
+
+body, html {
+    font-family: sans-serif;
+}
+
+#title {
+    display: block;
+    text-align: center;
+}
+
+.holder {
+    font-size: 10vmin;
+    width: 90%;
+    text-align: center;
+    margin: auto;
+}
+
+#desc {
+    font-size: 5vmin;
+}
+
+#subdomain, #domain, #tld {
+    border: 1px #ccc dotted;
+    cursor: pointer;
+}
+
+#domain, #subdomain {
+    padding: 0.2em;
+}
