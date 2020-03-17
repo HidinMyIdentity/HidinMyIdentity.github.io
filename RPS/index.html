@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--
+    This relies heavily on the :checked selector trick
+    -->
+
+    <div class="content">
+        <h4>Choose Rock, Paper, or Scissors </h4>
+        <label class="choices">
+            <!--
+            These point to the three respective choices in the second part
+            -->
+            <label for="radiorock"><img class="choice" src="https://openmoji.org/data/color/svg/1F48E.svg" height="96"
+                                        alt="rock"></label>
+            <label for="radiopaper"><img class="choice" src="https://openmoji.org/data/color/svg/1F4F0.svg" height="96"
+                                         alt="paper"></label>
+            <label for="radioscissors"><img class="choice" src="https://openmoji.org/data/color/svg/2702.svg"
+                                            height="96" alt="scissors"></label>
+        </label>
+        <!--
+        Hidden "fourth choice" that simply hides the whole resultframe
+        -->
+        <input type="radio" name="choice" value="reset" id="reset" checked>
+
+        <div class="resultframe">
+            <!--
+            Resultframe covers everything up, but its cover that crops out the "computer's choice"
+            -->
+            <div class="cover">
+                <input type="radio" name="choice" value="rock" id="radiorock">
+                <input type="radio" name="choice" value="paper" id="radiopaper">
+                <input type="radio" name="choice" value="scissors" id="radioscissors">
+
+                <div class="rockresult result">
+                    <img src="https://openmoji.org/data/color/svg/1F48E.svg" height="96" alt="rock">
+                    <label for="reset" class="reset">Play again?</label>
+                </div>
+
+                <div class="paperresult result">
+                    <img src="https://openmoji.org/data/color/svg/1F4F0.svg" height="96" alt="paper">
+                    <label for="reset" class="reset">Play again?</label>
+                </div>
+
+                <div class="scissorsresult result">
+                    <img src="https://openmoji.org/data/color/svg/2702.svg" height="96" alt="scissors">
+                    <label for="reset" class="reset">Play again?</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+

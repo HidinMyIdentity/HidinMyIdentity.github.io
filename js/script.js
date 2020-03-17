@@ -4,6 +4,12 @@
 var speed = 5;
 var easing = "swing";
 
+// Mobile devices dont have that good of a processor, so we make the amount of steps less
+var expandamt = 1;
+
+// Keep track of layout type
+var IsMobile = false;
+
 /**
  * Hacky little fix to easily get a z-index
  * @return {number}
@@ -11,15 +17,23 @@ var easing = "swing";
 function GetDepth(deg) {
     deg = Math.abs(parseInt(deg));
     // 180 degrees is the back, 90/270 is the middle, and 0 is the front
-    switch (deg) {
-        case 0:
+    if (!IsMobile) {
+        switch (deg) {
+            case 0:
+                return 5;
+            case 90:
+            case 270:
+                return 3;
+            case 180:
+                return 1;
+        }
+    } else {
+        if (deg === 0) {
             return 5;
-        case 90:
-        case 270:
-            return 3;
-        case 180:
-            return 1;
+        }
+        return 0;
     }
+
 }
 
 /**
@@ -37,7 +51,7 @@ function IndexTrigger(parent, i) {
     } else if (i % 90 === 45) {
         // The setting of this value will be done by the time that the animation finishes.
         parent.css("z-index", GetDepth(parent.attr("data-deg")));
-    } else if (i === 89) {
+    } else if (i === 85) {
         $("button").attr("disabled", false);
     }
 }
@@ -52,7 +66,8 @@ function SpinFrame(parent, i, deg) {
     // it applies the .css change at the end
     parent.animate({left: `${42.5 + ((25 + rads) * Math.sin(rads))}%`}, speed, easing,
         ()=>{
-            parent.css({filter: `blur(${(1-Math.cos(rads))*2}px)`, transform: `scale(${0.75+(Math.cos(rads)/4)})`});
+            parent.css({filter: `blur(${(1-Math.cos(rads))*2}px)`, transform: `scale(${(100*(0.75+(Math.cos(rads)/4)) ) / 100})`});
+            console.log(0.75+(Math.cos(rads)/4));
             // Run each change to determine if it is 50% of the way done, and if so, change the z-index
             IndexTrigger(parent, i)
         })
@@ -66,8 +81,8 @@ function SpinForward() {
     let parent = $(this);
     // Get the position in degrees from the element's data-deg attribute
     let basedeg = parseInt(parent.attr("data-deg"));
-    // Loop 90 times, one for each degree
-    for (let i = 0; i < 90; i+= 1) {
+    // Loop a maximum of 90 times, each degree
+    for (let i = 0; i < 90; i+= expandamt) {
         // get the full degrees
         let deg = basedeg + i;
         // Speen!
@@ -86,7 +101,7 @@ function SpinBackward() {
     // What degree are we working from?
     let basedeg = parseInt(parent.attr("data-deg"));
     // Loop over each degree
-    for (let i = 0; i < 90; i+= 1) {
+    for (let i = 0; i < 90; i+= expandamt) {
         // Get the modified degree
         let deg = basedeg - i;
         // Speen!
@@ -94,6 +109,19 @@ function SpinBackward() {
     }
     // Change the degree attribute on the box by 90 degrees, and keep it in the bounds of 360 degrees
     parent.attr("data-deg", (parent.attr("data-deg") - 90) % 360);
+}
+
+/**
+ * Tracks if the size is enough to qualify for big mobile display
+ */
+function WindowSizeChange() {
+    if (window.innerWidth < 1000 && IsMobile === false) {
+        IsMobile = true;
+        expandamt = 5;
+    } else if (window.innerWidth >=1000 && IsMobile === true) {
+        IsMobile = false;
+        expandamt = 1;
+    }
 }
 
 // Register button events via jQuery
@@ -124,3 +152,8 @@ $(".box").each(
         IndexTrigger(parent, 45)
     }
 );
+
+// Check window sizes
+window.addEventListener('resize', WindowSizeChange);
+// Call it once to be safe
+WindowSizeChange();

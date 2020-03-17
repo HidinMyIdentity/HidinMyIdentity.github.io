@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Robert Roberts -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynconv</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="content">
+        <div>
+            <h2>Dynconv</h2>
+            <p>Converts an input through SI conversions provided by the <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8">NIST</a>. <br>
+                Drag to reassign position.<br>
+                The checkmark determines the direction of the conversion
+            </p>
+
+            <label for="beginning">Initial value: </label><input type="number" value="0.0" id="beginning"> ↴
+            <ol id="process">
+                <button id="addAnother">Add another process</button> <!-- Breaking spec for fun and profit -->
+            </ol>
+
+            <label for="output">Output: </label><input id="output">
+
+            <sub>
+                <a href="data/script.py">code for gathering the values</a>
+            </sub>
+
+        </div>
+    </div>
+    
+</body>
+</html>

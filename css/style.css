@@ -4,6 +4,8 @@ body {
     background: url("../img/pixil-frame-0.png"), #002240;
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
+    overflow: hidden;
 }
 
 a:link {
@@ -21,13 +23,18 @@ a:visited {
     left: calc(50% - 12.5vh);
     top: 15vh;
     border: 1px solid #323232;
-    text-align: center;
     position: absolute;
+    border-radius: 1em;
+}
+
+.boxcontainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 1em;
-    padding: 0.5em
+    padding: 0.5em;
+    text-align: center;
+    height: 95%;
+
 }
 
 .content {
@@ -48,3 +55,32 @@ a:visited {
     left: calc(12% - 12.5vh);
 }
 
+.cycle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cycle button {
+    width: 47.5%;
+    background: #FFF;
+    border: none;
+    height: 2em;
+    border-radius: 2px
+}
+
+@media all and (max-width: 1000px){
+    .box {
+        position: absolute;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .boxcontainer {
+        font-size: 5vmax;
+    }
+}

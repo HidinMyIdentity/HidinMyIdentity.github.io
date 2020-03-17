@@ -1,0 +1,54 @@
+/* Robert Roberts */
+
+body, html {
+    font-family: monospace;
+    font-size: x-large;
+}
+
+.content {
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    width: 50%;
+    border: 1px solid black;
+    padding: 2em;
+}
+
+#process {
+    border: 1px dashed #aaa;
+}
+
+.option {
+    font-family: monospace;
+    font-size: small;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.measure {
+    position: absolute;
+    visibility: hidden;
+    white-space: nowrap;
+    font-size: small;
+    font-family: monospace;
+}
+
+.error {
+    border: red 1px solid;
+}
+
+sub {
+    display: block;
+    font-size: x-small;
+}
+
+@media all and (max-width: 1000px) {
+    .content {
+        width: 100%;
+        padding: 0;
+        position: static;
+    }
+    .content > div {
+        padding: 1em;
+    }
+}

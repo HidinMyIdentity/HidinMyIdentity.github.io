@@ -22,6 +22,7 @@ function PartClick(e) {
     e.stopPropagation();
     let $clicked = $(this);
     let part = $clicked.attr("id");
+    // Validate that the part is in there
     if (part in texts) {
         $desc.fadeOut(function () {
             $desc.text(texts[part]).fadeIn();
