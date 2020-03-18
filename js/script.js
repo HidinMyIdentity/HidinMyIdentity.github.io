@@ -67,7 +67,6 @@ function SpinFrame(parent, i, deg) {
     parent.animate({left: `${42.5 + ((25 + rads) * Math.sin(rads))}%`}, speed, easing,
         ()=>{
             parent.css({filter: `blur(${(1-Math.cos(rads))*2}px)`, transform: `scale(${(100*(0.75+(Math.cos(rads)/4)) ) / 100})`});
-            console.log(0.75+(Math.cos(rads)/4));
             // Run each change to determine if it is 50% of the way done, and if so, change the z-index
             IndexTrigger(parent, i)
         })
